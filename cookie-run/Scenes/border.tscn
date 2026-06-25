@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://ox1ifn0numt0"]
+
+[ext_resource type="Texture2D" uid="uid://c48ydresr7g2h" path="res://Assest/Ratz.jpg" id="1_tor00"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2ho0"]
+size = Vector3(0.0265503, 1, 1)
+
+[node name="Border" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105081, 0, 0)
+shape = SubResource("BoxShape3D_x2ho0")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, 0)
+modulate = Color(1, 1, 1, 0.137255)
+texture = ExtResource("1_tor00")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, -9.68864)
+modulate = Color(1, 1, 1, 0.117647)
+texture = ExtResource("1_tor00")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, -19.3285)
+modulate = Color(1, 1, 1, 0.0980392)
+texture = ExtResource("1_tor00")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, -28.9701)
+modulate = Color(1, 1, 1, 0.0784314)
+texture = ExtResource("1_tor00")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, -38.6502)
+modulate = Color(1, 1, 1, 0.0588235)
+texture = ExtResource("1_tor00")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, -48.3388)
+modulate = Color(1, 1, 1, 0.0392157)
+texture = ExtResource("1_tor00")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, -57.9787)
+modulate = Color(1, 1, 1, 0.0196078)
+texture = ExtResource("1_tor00")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, -67.6203)
+modulate = Color(1, 1, 1, 0.00784314)
+texture = ExtResource("1_tor00")

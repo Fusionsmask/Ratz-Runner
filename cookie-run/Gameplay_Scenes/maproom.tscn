@@ -1,0 +1,296 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmgu7450dc165"]
+
+[ext_resource type="Script" path="res://Gameplay_Scenes/maproom.gd" id="1_5p80u"]
+[ext_resource type="Texture2D" uid="uid://c48ydresr7g2h" path="res://Assest/Ratz.jpg" id="1_o1woa"]
+[ext_resource type="Texture2D" uid="uid://cpu8jtg2p5kie" path="res://Assest/Illustration.clip256.png" id="3_cqlpi"]
+[ext_resource type="AudioStream" uid="uid://dyaxagqjpahj2" path="res://Assest/Audio/Arcadia.mp3" id="4_fagpb"]
+[ext_resource type="Texture2D" uid="uid://b4xgi17ubc43g" path="res://Assest/white.png" id="5_o2jb1"]
+[ext_resource type="LabelSettings" uid="uid://deugnjpiwnwwu" path="res://font.tres" id="6_oo2qc"]
+
+[sub_resource type="Animation" id="Animation_ebk31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Maps:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Maps:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lights/DirectionalLight3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.40522, -0.9316, 1.15089)]
+}
+
+[sub_resource type="Animation" id="Animation_1nbb1"]
+resource_name = "Wobble"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Maps:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(0.5, 1.5, 0.5, 1.5, 1.41421),
+"update": 0,
+"values": [Vector3(0, 2, -8), Vector3(0.6, 1.7, -8), Vector3(0, 1.9, -8), Vector3(-0.6, 1.7, -8), Vector3(0, 2, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Maps:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(0.615572, 1.51572, 0.659754, 1.51572, 1.86607),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0523599, -0.0523599, 0.0523599), Vector3(0, 0, 0), Vector3(-0.0698132, 0.0174533, -0.0523599), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lights/DirectionalLight3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.7, 5.16667, 7.03333, 8),
+"transitions": PackedFloat32Array(0.574349, 1.68179, 0.63728, 1.51572, 0.574349),
+"update": 0,
+"values": [Vector3(-1.40522, -0.9316, 1.15089), Vector3(-1.40499, -0.698132, 1.15017), Vector3(-1.40522, -0.9316, 1.15089), Vector3(-1.40499, -0.698132, 1.15017), Vector3(-1.40522, -0.9316, 1.15089)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vd2y1"]
+_data = {
+"RESET": SubResource("Animation_ebk31"),
+"Wobble": SubResource("Animation_1nbb1")
+}
+
+[node name="Maproom" type="Node3D"]
+script = ExtResource("1_5p80u")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+current = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.755, -10.0207)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+shaded = true
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.755, 21.0726)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+shaded = true
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.844326, 0, 0, 0, 0.283578, -9.99598, 0, 9.99598, 0.283578, 0, 20.405, -0.518026)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.844326, 0, 0, 0, 0.283578, -9.99598, 0, 9.99598, 0.283578, -5.35967, 20.405, -0.518026)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.844326, 0, 0, 0, 0.283578, -9.99598, 0, 9.99598, 0.283578, -11.1086, 20.405, -0.518026)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.844326, 0, 0, 0, 0.283578, -9.99598, 0, 9.99598, 0.283578, 5.21632, 20.405, -0.518026)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(4.54456, 0, 0, 0, 0.283578, -9.99598, 0, 9.99598, 0.283578, 19.752, 20.405, -0.518026)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(4.54456, 0, 0, 0, 0.283578, -9.99598, 0, 9.99598, 0.283578, -25.6082, 20.405, -0.518026)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-07, 0.283578, -9.99598, -10, -1.23956e-08, 4.36938e-07, 0, 9.99598, 0.283578, 23.82, -1.70807, -0.340527)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-07, 0.283578, -9.99598, -10, -1.23956e-08, 4.36938e-07, 0, 9.99598, 0.283578, -22.5918, -1.70807, -0.340527)
+sorting_offset = -10.0
+cast_shadow = 2
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
+transparent = false
+texture = ExtResource("1_o1woa")
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="lights"]
+transform = Transform3D(0.998299, 0, 0.0582958, 0, 1, 0, -0.0582958, 0, 0.998299, 0.488522, 1.09432, 2.01436)
+light_color = Color(0.956863, 1, 1, 1)
+light_energy = 25.0
+light_indirect_energy = 1.901
+light_volumetric_fog_energy = 1.803
+light_specular = 4.0
+shadow_enabled = true
+spot_range = 13.8045
+spot_angle = 27.7656
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
+transform = Transform3D(0.96603, -0.222011, -0.132281, 0.150502, 0.0671933, 0.986323, -0.210087, -0.972726, 0.0983239, -0.09, 27.852, 7.687)
+light_color = Color(0.823529, 0.72549, 1, 1)
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11795, 7.22637, -1.50807)
+light_color = Color(1, 1, 0.4, 1)
+light_energy = 7.747
+shadow_enabled = true
+omni_range = 8.81149
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54839, -2.31307, -1.61813)
+light_color = Color(0.584311, 0.450149, 0.792813, 1)
+light_energy = 6.819
+shadow_enabled = true
+omni_range = 11.3391
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13634, -2.31307, -1.68069)
+light_color = Color(0.327212, 0.579022, 0.596668, 1)
+light_energy = 3.909
+shadow_enabled = true
+omni_range = 11.3391
+
+[node name="Maps" type="Node3D" parent="."]
+
+[node name="map_itself" type="Sprite3D" parent="Maps"]
+transparent = false
+shaded = true
+texture = ExtResource("3_cqlpi")
+
+[node name="Marker3D" type="Marker3D" parent="Maps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88296, 5.0437, 0.0266258)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vd2y1")
+}
+autoplay = "Wobble"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="MapCam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 6.6, -3.7)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fagpb")
+volume_db = -20.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.95
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 0.9
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color(0.0666667, 0, 0.0235294, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_o2jb1")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+label_settings = ExtResource("6_oo2qc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

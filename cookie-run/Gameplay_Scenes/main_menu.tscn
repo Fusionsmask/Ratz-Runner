@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdmbnh2af4q63"]
+
+[ext_resource type="Script" path="res://Gameplay_Scenes/main_menu.gd" id="1_1c1qs"]
+[ext_resource type="LabelSettings" uid="uid://deugnjpiwnwwu" path="res://font.tres" id="1_lguyg"]
+[ext_resource type="Texture2D" uid="uid://c48ydresr7g2h" path="res://Assest/Ratz.jpg" id="3_c54ug"]
+[ext_resource type="LabelSettings" uid="uid://bxirsj5665wv" path="res://Smolfont.tres" id="4_vi3qj"]
+[ext_resource type="AudioStream" uid="uid://b1a1s0up2twkd" path="res://Assest/Audio/spaß.mp3" id="5_2fm7a"]
+[ext_resource type="AudioStream" uid="uid://dr8ymhda4hgex" path="res://Assest/Audio/Kool Katz.mp3" id="6_485ob"]
+
+[node name="Main Menu" type="CanvasLayer"]
+script = ExtResource("1_1c1qs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.252028, 0.252028, 0.252028, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_c54ug")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.5
+offset_right = 52.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ratz-Runner"
+label_settings = ExtResource("1_lguyg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press Screen"
+label_settings = ExtResource("4_vi3qj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2fm7a")
+volume_db = -25.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_485ob")
+volume_db = -20.0
+autoplay = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="wui" type="Timer" parent="Node"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

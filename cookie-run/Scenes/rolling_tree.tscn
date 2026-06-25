@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://75cl8jeq7amk"]
+
+[ext_resource type="PackedScene" uid="uid://226x67oq6u2v" path="res://Scenes/Obstacle.tscn" id="1_0jeam"]
+[ext_resource type="Script" path="res://rolling_tree.gd" id="2_iygey"]
+[ext_resource type="Texture2D" uid="uid://c48ydresr7g2h" path="res://Assest/Ratz.jpg" id="3_rmeyw"]
+[ext_resource type="PackedScene" uid="uid://cwoqepg6h00et" path="res://Assest/3d/RollPillar.glb" id="4_cp413"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ie2i0"]
+height = 9.46512
+radius = 0.69475
+
+[node name="RollingTree" instance=ExtResource("1_0jeam")]
+script = ExtResource("2_iygey")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-4.36912e-08, 0.999539, 0, -0.999539, -4.36912e-08, 0, 0, 0, 0.999539, 0, 0.76092, 0)
+shape = SubResource("CylinderShape3D_ie2i0")
+
+[node name="Sprites" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Sprite3D" parent="Sprites" index="0"]
+visible = false
+texture = ExtResource("3_rmeyw")
+
+[node name="RollPillar" parent="Sprites" index="1" instance=ExtResource("4_cp413")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

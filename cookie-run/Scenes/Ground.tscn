@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg0j7m68ksh00"]
+
+[ext_resource type="Script" path="res://Scenes/ground.gd" id="1_ayrny"]
+[ext_resource type="PackedScene" uid="uid://dyv6m06c2cvnd" path="res://Assest/3d/Ratcube.glb" id="2_cd2hw"]
+
+[node name="Ground" type="Node3D"]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 9, 0, 0, 0)
+script = ExtResource("1_ayrny")
+
+[node name="Ratcube" parent="." instance=ExtResource("2_cd2hw")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 45, 0, 0, -38)

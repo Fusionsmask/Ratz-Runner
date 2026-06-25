@@ -1,0 +1,161 @@
+[gd_scene load_steps=12 format=3 uid="uid://wd3varsxv165"]
+
+[ext_resource type="Script" path="res://Scenes/jesus.gd" id="1_0ygjf"]
+[ext_resource type="Texture2D" uid="uid://0254ogn6t8js" path="res://Assest/Fahrradsattelshop.png" id="1_js8c8"]
+[ext_resource type="Texture2D" uid="uid://h42kr1te1uli" path="res://icon.svg" id="2_qgv32"]
+[ext_resource type="PackedScene" uid="uid://cphlk7a2r2uba" path="res://Assest/3d/gatzprojectil.glb" id="3_ug7ky"]
+[ext_resource type="PackedScene" uid="uid://tgwsoveh52dy" path="res://Assest/3d/niklasbossgats.glb" id="4_32p77"]
+
+[sub_resource type="Animation" id="Animation_lvep2"]
+resource_name = "Charging"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Ball:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333, 3, 3.46667, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector3(0, 0, -1), Vector3(0, 3.5, -1), Vector3(0, 4, -1), Vector3(0, 4, -1), Vector3(0, 0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Ball:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.566667, 3, 3.46667, 3.5),
+"transitions": PackedFloat32Array(1, 1e-05, 1e-05, 7.01111e-05),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(2.5, 2.5, 2.5), Vector3(2.5, 2.5, 2.5), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/Ball:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 12.5664), Vector3(7.33038, 0, 14.6608)]
+}
+
+[sub_resource type="Animation" id="Animation_2vw8s"]
+resource_name = "Moving down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yfhnk"]
+resource_name = "Moving up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1e-05),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -20, 64), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v42xn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -20, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5a1cb"]
+_data = {
+"Charging": SubResource("Animation_lvep2"),
+"Moving down": SubResource("Animation_2vw8s"),
+"Moving up": SubResource("Animation_yfhnk"),
+"RESET": SubResource("Animation_v42xn")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2rgd"]
+size = Vector3(3.03735, 2.95508, 0.142334)
+
+[node name="Jesus" type="Area3D"]
+script = ExtResource("1_0ygjf")
+active = true
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 64)
+
+[node name="Ball" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D/Ball"]
+visible = false
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("2_qgv32")
+
+[node name="gatzprojectil" parent="Node3D/Ball" instance=ExtResource("3_ug7ky")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.0712394, -3.2635, 0)
+
+[node name="Visuals" type="Node3D" parent="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D/Visuals"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+texture = ExtResource("1_js8c8")
+
+[node name="niklasbossgats" parent="Node3D/Visuals" instance=ExtResource("4_32p77")]
+
+[node name="Marker3D" type="Marker3D" parent="Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -1)
+
+[node name="Wait" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5a1cb")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00549316, 0.00292969, 0.0032959)
+shape = SubResource("BoxShape3D_e2rgd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Wait" to="." method="_on_wait_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

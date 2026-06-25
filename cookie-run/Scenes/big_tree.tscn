@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://0wxg31x67kgn"]
+
+[ext_resource type="PackedScene" uid="uid://226x67oq6u2v" path="res://Scenes/Obstacle.tscn" id="1_2ukwh"]
+[ext_resource type="Script" path="res://Scenes/big_tree.gd" id="1_76leh"]
+[ext_resource type="Texture2D" uid="uid://c48ydresr7g2h" path="res://Assest/Ratz.jpg" id="2_8pvl0"]
+[ext_resource type="PackedScene" uid="uid://3qpqi3avsd3m" path="res://Assest/3d/RatBogen.glb" id="4_bqdrx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qnehn"]
+radius = 0.905508
+height = 5.86234
+
+[node name="BigTree" instance=ExtResource("1_2ukwh")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_76leh")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.987107, -0.157654, -0.0276754, 0.159402, 0.983934, 0.0804098, 0.0145538, -0.083785, 0.996377, 2.14888, 2.34973, 0.90885)
+shape = SubResource("CapsuleShape3D_qnehn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(0.758563, 0.345047, -0.552743, -0.355259, 0.930122, 0.0930794, 0.546236, 0.125761, 0.828137, -2.55517, 2.88072, -0.78472)
+shape = SubResource("CapsuleShape3D_qnehn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(0.333658, 0.922396, -0.194571, -0.626416, 0.0627003, -0.776963, -0.704467, 0.381122, 0.598724, -0.141449, 3.24273, -0.0532291)
+shape = SubResource("CapsuleShape3D_qnehn")
+
+[node name="Sprites" parent="." index="3"]
+visible = false
+
+[node name="Sprite3D" parent="Sprites" index="0"]
+transform = Transform3D(0.460108, -0.379498, -0.0598976, 0.193118, 0.840714, 0.23719, -0.0317251, -0.386241, 0.575133, 2.03993, 2, 0.87)
+sorting_offset = 1.0
+texture = ExtResource("2_8pvl0")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Sprites" index="1"]
+transform = Transform3D(0.378827, -0.233572, -0.0495008, 0.159002, 0.517438, 0.196019, -0.0261207, -0.237721, 0.475303, 3.51796, 1.41156, 1.81767)
+sorting_offset = 1.0
+texture = ExtResource("2_8pvl0")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Sprites" index="2"]
+transform = Transform3D(-0.0210538, -0.686163, -0.453893, 0.49763, -0.0925802, 0.0186039, -0.0438295, -0.721533, 0.429256, -0.353557, 3.32139, -0.407912)
+texture = ExtResource("2_8pvl0")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Sprites" index="3"]
+transform = Transform3D(0.385895, 0.326062, -0.341198, -0.230237, 0.878657, -0.0788732, 0.219262, 0.348778, 0.517676, -2.16104, 2, -1.575)
+sorting_offset = -1.0
+texture = ExtResource("2_8pvl0")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Sprites" index="4"]
+transform = Transform3D(0.461081, 0.20484, -0.359416, -0.275095, 0.551994, -0.0830848, 0.261982, 0.219111, 0.545318, -3.96535, 1.15023, -2.29129)
+sorting_offset = -1.0
+texture = ExtResource("2_8pvl0")
+
+[node name="RatBogen" parent="." index="4" instance=ExtResource("4_bqdrx")]
+transform = Transform3D(-3.93403e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.93403e-08, 0, -0.5, 0)

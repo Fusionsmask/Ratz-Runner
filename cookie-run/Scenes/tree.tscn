@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://do74hmhn1txca"]
+
+[ext_resource type="PackedScene" uid="uid://226x67oq6u2v" path="res://Scenes/Obstacle.tscn" id="1_wtnvv"]
+[ext_resource type="Script" path="res://Scenes/tree.gd" id="2_ijuyk"]
+[ext_resource type="Texture2D" uid="uid://c48ydresr7g2h" path="res://Assest/Ratz.jpg" id="3_3xhim"]
+[ext_resource type="PackedScene" uid="uid://ni3y8n7l7rp2" path="res://Assest/3d/Pillar.glb" id="4_n48t0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_du2sh"]
+height = 3.96569
+radius = 1.0
+
+[node name="Tree" instance=ExtResource("1_wtnvv")]
+script = ExtResource("2_ijuyk")
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CylinderShape3D_du2sh")
+
+[node name="Sprite3D" parent="Sprites" index="0"]
+visible = false
+texture = ExtResource("3_3xhim")
+
+[node name="Pillar" parent="." index="2" instance=ExtResource("4_n48t0")]
+transform = Transform3D(-4.80825e-08, 0, -1.1, 0, 1.1, 0, 1.1, 0, -4.80825e-08, 0, -0.5, 0)

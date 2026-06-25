@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://jmhd6nim61l5"]
+
+[ext_resource type="Script" path="res://Gameplay_Scenes/coordianteroom.gd" id="1_6u8ng"]
+[ext_resource type="Texture2D" uid="uid://c48ydresr7g2h" path="res://Assest/Ratz.jpg" id="2_eqrsj"]
+[ext_resource type="AudioStream" uid="uid://dyaxagqjpahj2" path="res://Assest/Audio/Arcadia.mp3" id="3_qcrgr"]
+[ext_resource type="Texture2D" uid="uid://b4xgi17ubc43g" path="res://Assest/white.png" id="4_4bk8d"]
+[ext_resource type="LabelSettings" uid="uid://cg4wst6y0je41" path="res://Font-Black.tres" id="5_2b43m"]
+[ext_resource type="PackedScene" uid="uid://dyv6m06c2cvnd" path="res://Assest/3d/Ratcube.glb" id="6_cy7u8"]
+
+[node name="Coordianteroom" type="Node3D"]
+script = ExtResource("1_6u8ng")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.26527, 2.26578)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.998422, 0.0561526, 0, -0.0561526, 0.998422, 0, 0, -2.61021)
+cast_shadow = 2
+texture = ExtResource("2_eqrsj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qcrgr")
+volume_db = -20.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchor_left = 0.95
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 0.9
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_4bk8d")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.375
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -65.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
+label_settings = ExtResource("5_2b43m")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Ratcube" parent="Node3D" instance=ExtResource("6_cy7u8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.65826, 1.94426, -1.28852)
+
+[node name="Ratcube2" parent="Node3D" instance=ExtResource("6_cy7u8")]
+transform = Transform3D(-4.32371e-09, 0.0146912, -0.296745, 6.42172e-10, 0.098915, 0.0440735, 0.1, 0, -1.31134e-08, -1.45716, 1.55531, -1.45112)
+
+[node name="Ratcube3" parent="Node3D" instance=ExtResource("6_cy7u8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.09184, 2.04141, -1.44083)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
